@@ -29,9 +29,10 @@ export const calculateWinner = (
   const anglePerSegment = 360 / items.length;
   
   // The pointer is at the top (0 degrees)
-  // We need to calculate which segment is under the pointer
-  // Since segments start at 0 degrees and go clockwise
-  const segmentIndex = Math.floor(normalizedRotation / anglePerSegment);
+  // When the wheel rotates, we need to find which segment ends up under the pointer
+  // We need to invert the rotation since the wheel spins but the pointer stays fixed
+  const adjustedRotation = (360 - normalizedRotation) % 360;
+  const segmentIndex = Math.floor(adjustedRotation / anglePerSegment);
   
   // Return the item at the calculated index
   return items[segmentIndex];
