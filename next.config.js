@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Explicitly disable static export
-  output: undefined,
-  // Ensure we're using standard Next.js deployment
-  experimental: {
-    outputFileTracingRoot: undefined
+  // Force server-side features to prevent static export
+  async redirects() {
+    return []
+  },
+  async rewrites() {
+    return []
   }
 }
 
