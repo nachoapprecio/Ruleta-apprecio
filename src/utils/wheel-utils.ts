@@ -28,16 +28,13 @@ export const calculateWinner = (
   const normalizedRotation = ((finalRotation % 360) + 360) % 360;
   const anglePerSegment = 360 / items.length;
   
-  // Calculate which segment the pointer is pointing to
-  // The pointer is at the top (0 degrees), so we need to offset
-  const pointerOffset = 90; // Pointer is at top, so 90 degrees offset
-  const adjustedAngle = (normalizedRotation + pointerOffset) % 360;
-  const segmentIndex = Math.floor(adjustedAngle / anglePerSegment);
+  // The pointer is at the top (0 degrees)
+  // We need to calculate which segment is under the pointer
+  // Since segments start at 0 degrees and go clockwise
+  const segmentIndex = Math.floor(normalizedRotation / anglePerSegment);
   
-  // Since the wheel spins clockwise, we need to invert the index
-  const winnerIndex = (items.length - 1 - segmentIndex) % items.length;
-  
-  return items[winnerIndex];
+  // Return the item at the calculated index
+  return items[segmentIndex];
 };
 
 export const generateSpinRotation = (
