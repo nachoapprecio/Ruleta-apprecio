@@ -5,7 +5,6 @@
   "outputDirectory": "out",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "functions": {},
   "redirects": [
     {
       "source": "/favicon.ico",
