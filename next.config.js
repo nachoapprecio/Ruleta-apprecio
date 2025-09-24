@@ -3,12 +3,8 @@ const nextConfig = {
   // Optimized for Vercel deployment
   poweredByHeader: false,
   compress: true,
-  // Enable static exports for better performance
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true
-  }
+  // Standard deployment configuration for Vercel
+  trailingSlash: true
 }
 
 module.exports = nextConfig
